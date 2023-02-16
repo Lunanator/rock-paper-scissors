@@ -63,6 +63,17 @@ for (let roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++) {
 }
 
 
+function bestOf() {
+    gamesWonPlayer = 0;
+    gamesWonComputer = 0;
+    do {
+        playRound();
+    }
+    while (Math.abs(gamesWonPlayer - gamesWonComputer) != 2)
+}
+
+
+
 //if the player wins the game, record the game as a win
 //if the player loses the game, record the game as a loss
 //report the result to the player
