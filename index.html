@@ -1,9 +1,12 @@
 <script>
 
 //Create variable to store result of a match
-let gameResult = "win";
+let gameResult;
+//variable to store the number of times the player has won
+let gamesWonPlayer;
+let gamesWonComputer;
 //create variable to store player's move and ask them to input selection
-let playerSelection = prompt("Enter your move (rock, paper, or scissors)").toLowerCase();
+//let playerSelection = prompt("Enter your move (rock, paper, or scissors)").toLowerCase();
 //creat variable (array) that stores the possible moves for the com
 const moves = [
     "rock",
@@ -12,7 +15,7 @@ const moves = [
 ];
 //create variable to store computer's move
 let computerSelection = moves[Math.floor(Math.random() * moves.length)];
-console.log(`Computer selection is: ${computerSelection}`);
+//console.log(`Computer selection is: ${computerSelection}`);
 //Randomly generate computer's move by choosing from the array above
 function getComputerSelection() {
     return computerSelection = moves[Math.floor(Math.random() * moves.length)];
@@ -21,26 +24,51 @@ function getComputerSelection() {
     //the move of the computer
 //compare the moves to each other
 //if moves are the same, record the game as a draw
-function playGame () {
+function playRound () {
+    getComputerSelection();
+    let playerSelection = prompt("Enter your move (rock, paper, or scissors)").toLowerCase();
     if (playerSelection === computerSelection) {
     gameResult = "draw";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         gameResult = "win";
+        gamesWonPlayer++;
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         gameResult = "loss";
+        gamesWonComputer++;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         gameResult = "win";
+        gamesWonPlayer++;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         gameResult = "loss";
+        gamesWonComputer++;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         gameResult = "win";
+        gamesWonPlayer++;
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         gameResult = "loss";
+        gamesWonComputer++;
     }
-    console.log(gameResult);
+    console.log(`Computer selection is: ${computerSelection}`);
+    console.log(`Game result: ${gameResult}`);
+    console.log(`Player wins: ${gamesWonPlayer}`);
+    console.log(`Computer wins: ${gamesWonComputer}`);
 }
+
+function game() {
+gamesWonPlayer = 0;
+gamesWonComputer = 0;    
+for (let roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++) {
+    playRound ();
+}
+}
+
+
 //if the player wins the game, record the game as a win
 //if the player loses the game, record the game as a loss
 //report the result to the player
+
+
+//variable to store the number of rounds played (maybe imbed into the for loop)
+
 </script>
 
