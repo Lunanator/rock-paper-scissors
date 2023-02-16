@@ -1,30 +1,46 @@
 <script>
-    const gameMoves = [
-        "rock",
-        "paper",
-        "scissors"
-    ]
 
-    const computerChoice = getComputerChoice();
-    
-    function getComputerChoice() {
-        return gameMoves[Math.floor(Math.random() * gameMoves.length)]
+//Create variable to store result of a match
+let gameResult = "win";
+//create variable to store player's move and ask them to input selection
+let playerSelection = prompt("Enter your move (rock, paper, or scissors)").toLowerCase();
+//creat variable (array) that stores the possible moves for the com
+const moves = [
+    "rock",
+    "paper",
+    "scissors"
+];
+//create variable to store computer's move
+let computerSelection = moves[Math.floor(Math.random() * moves.length)];
+console.log(`Computer selection is: ${computerSelection}`);
+//Randomly generate computer's move by choosing from the array above
+function getComputerSelection() {
+    return computerSelection = moves[Math.floor(Math.random() * moves.length)];
+}
+//Make sure the player's input is the same type of data as
+    //the move of the computer
+//compare the moves to each other
+//if moves are the same, record the game as a draw
+function playGame () {
+    if (playerSelection === computerSelection) {
+    gameResult = "draw";
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        gameResult = "win";
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        gameResult = "loss";
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        gameResult = "win";
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        gameResult = "loss";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        gameResult = "win";
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        gameResult = "loss";
     }
-    console.log(computerChoice)
-
-    //const playerSelection = prompt("Choose your move."); 
-    //console.log(playerSelection)
-
-    //function playRound(playerSelection, computerChoice) {
-
-    //}
-
-
-// - Generate the computer's move by randomly selecting from the 3 options
-// - Generate or enter the player's move
-// - compare the computer's move to the player's move
-// - declare win/tie/loss
-
-
+    console.log(gameResult);
+}
+//if the player wins the game, record the game as a win
+//if the player loses the game, record the game as a loss
+//report the result to the player
 </script>
 
