@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="buttons">
+        <button type="button" id="rock">✊</button>
+        <button type="button" id="paper">✋</button>   
+        <button type="button" id =scissors>✌️</button>     
+    </div>
+</body>
+</html>
+
+
 <script>
 
 //Create variable to store result of a match
@@ -21,7 +40,7 @@ function getComputerSelection() {
     return computerSelection = moves[Math.floor(Math.random() * moves.length)];
 }
 //Make sure the player's input is the same type of data as
-    //the move of the computer
+//the move of the computer
 //compare the moves to each other
 //if moves are the same, record the game as a draw
 function playRound () {
@@ -62,7 +81,6 @@ for (let roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++) {
 }
 }
 
-
 function bestOf() {
     gamesWonPlayer = 0;
     gamesWonComputer = 0;
@@ -72,14 +90,13 @@ function bestOf() {
     while (Math.abs(gamesWonPlayer - gamesWonComputer) != 2)
 }
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+    })
+})
 
-
-//if the player wins the game, record the game as a win
-//if the player loses the game, record the game as a loss
-//report the result to the player
-
-
-//variable to store the number of rounds played (maybe imbed into the for loop)
 
 </script>
 
